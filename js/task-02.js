@@ -6,14 +6,13 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const listEl = document.querySelector('ul')
-console.log(listEl);
 
-for (let i = 0; i < ingredients.length; i += 1) {
-  const listItemEl = document.createElement("li");
-listItemEl.classList.add('item');
-listItemEl.textContent = ingredients[i];
-console.log(listItemEl);
-listEl.appendChild(listItemEl, listEl.firstElementChild)
-
+const liIngridients = [];
+for (let i of ingredients) {
+  liIngridients.push(document.createElement("li"));
+  liIngridients[liIngridients.length - 1].classList.add("item");
+  liIngridients[liIngridients.length - 1].textContent = i;
 }
+
+const ulIngredients = document.getElementById("ingredients");
+ulIngredients.append(...liIngridients);

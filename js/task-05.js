@@ -1,8 +1,12 @@
-const inputForm = document.querySelector('[id="name-input"]');
-const outPut = document.querySelector('[id="name-output"]');
-console.log('inputForm: ', inputForm)
-console.log('outPut: ',outPut.textContent)
-inputForm.addEventListener('input', onFormSubmit);
-function onFormSubmit(event) {
-    outPut.textContent = event.target.value;
+const formInput = document.getElementById('name-input');
+const formOutput = document.getElementById('name-output');
+
+formInput.addEventListener('input', updateValue);
+
+function updateValue(e) {
+    if (e.target.value == "") {
+        formOutput.textContent = "Anonymous";
+    } else {
+        formOutput.textContent = e.target.value;
+    }
 }
